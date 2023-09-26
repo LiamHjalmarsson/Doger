@@ -1,0 +1,65 @@
+@import "./views/Auth/auth__create.css";
+@import "./components/Cards/card.css";
+@import "./components/Ui/ui.css";
+@import "./components/Layouts/main.css";
+@import "./views/User/user__show.css";
+@import "./views/User/user__create.css";
+
+:root {
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #313131;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    color: white;
+}
+
+.nav__ul {
+    list-style-type: none;
+}
+
+.box {
+    display: flex; 
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.label {
+    margin: 0.4rem;
+    text-transform: capitalize;
+}
+
+.input {
+    outline: none;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    background-color: rgba(228, 228, 228, 0.683);
+    background: rgba(228, 228, 228, 0.683);
+}
+
+.message {
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+.footer {
+    padding: 2rem;
+}
+
+.footer__div {
+    text-align: center;
+    color: white;
+}

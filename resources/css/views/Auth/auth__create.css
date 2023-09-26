@@ -1,0 +1,73 @@
+.authCreate {
+}
+
+.authCreate__header__div {
+    text-align: center; 
+    margin: 1rem; 
+    font-size: 34px;
+}
+
+
+.authCreate__main {
+    width: 60vw;
+}
+
+.authCreate__main__form {
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.authCreate__main__form_div {
+    display: flex; 
+    flex-direction: column; 
+    margin-bottom: 1rem;
+}
+
+.authCreate__main__form_div__div {
+    text-align: center;
+}
+
+.authCreate__main__form_div__div__h3 {
+    text-decoration: underline;
+}
+
+.authCreate__main__form_div__div__button {
+    background-image: linear-gradient(to right, #FBAB7E 0%, #f3c759  51%, #F7CE68  100%);
+    padding: 1rem;
+    width: 50%;
+    outline: none;
+    background-size: 200% auto;
+    color: white;            
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.authCreate__card {
+    width: 40vw; 
+    background-color: #FBAB7E; 
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+.authCreate__card__div {
+    text-align: center; 
+    font-size: 32px; 
+    margin-bottom: 3rem;
+    display: flex; 
+    justify-content: center;
+}
+
+.authCreate__card__div__a_link {
+    outline: none; 
+    text-align: center; 
+    width: 50%; 
+    background: none; 
+    padding: 1rem; 
+    border: 2px solid white; 
+    border-radius: 1rem;
+}
