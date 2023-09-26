@@ -1,16 +1,16 @@
 <x-layout>
     <x-layouts.main>
-        <x-cards.card class="userShow__card">
+        <div class="userShow">
 
             <header class="userShow__header">
                 @if (auth()->user()->id == $user->id)
-                    <div style="display: flex; justify-content: space-between; position: absolute; top: 10px; width: 95%; z-index: 1;s">
-                        <div>
+                    <div style="display: flex; justify-content: space-between; position: relative; width: 100%;">
+                        <div style="position: absolute; z-index: 1">
                             <x-ui.a_link href="{{ route('user.show', $user) }}" style="padding: 1rem; width: 100px; background: #313131; color: white; border: none; outline: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
                                 User
                             </x-ui.a_link>
                         </div>
-                        <div>
+                        <div style="position: absolute; right: 0; z-index: 1;">
                             <form action="{{ route('auth.destroy', auth()->user()->id) }}" method="POST" style="text-align: center">
                                 @csrf
                                 @method('DELETE')
@@ -22,7 +22,7 @@
                     </div>
                 @endif
                 <div class="userShow__header__div">
-                    <x-ui.form action="{{ route('user.avatarUpdate', $user) }}" style="position: relative; padding: 1rem;" enctype="multipart/form-data">
+                    <x-ui.form action="{{ route('user.avatarUpdate', $user) }}" style="position: relative;" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div style="position: absolute; left: 55%; top: 10px;">  
@@ -82,7 +82,7 @@
                 </div>
             </nav>
 
-        </x-cards.card>
+        </div>
     </x-layouts.main>
 </x-layout>
 

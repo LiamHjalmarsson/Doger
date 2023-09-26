@@ -4,11 +4,11 @@
     </label>
     <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" @if(old($name) !== null) value="{{ old($name) }}" @endif class="input"/>
 
-    @error($name)
-        <div class="message">
-            <p>
-                {{ $message }}
-            </p>
-        </div>
-    @enderror    
+    <div style="height: 10px; text-align:center; margin-top: 0.2rem;">
+        @error($name)
+                <p>
+                    {{ $message }}
+                </p>
+        @enderror    
+    </div>
 </div>

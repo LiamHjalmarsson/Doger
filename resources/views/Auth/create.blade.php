@@ -1,7 +1,6 @@
 <x-layout>
     <x-layouts.main style="height: 85vh">
-
-        <x-cards.card >
+        <div class="authCreate">
             <header>
                 <div>
                 </div>
@@ -10,32 +9,32 @@
                 </div>
             </header>
 
-            <main class="authCreate__main">
+            <div class="authCreate__main">
                 <x-ui.form action="{{ route('auth.store') }}" class="authCreate__main__form">
                     <x-ui.input name="username" type="text" />
                     <x-ui.input name="password" type="password" />
 
-                    <div class="authCreate__main__form_div">
-                        <div class="authCreate__main__form_div__div">
-                            <h3 class="authCreate__main__form_div__div__h3">
+                    <div class="authCreate__main__form_div" style="margin-bottom: 2rem ">
+                        <div class="authCreate__main__form__div__div">
+                            <a href="#" style="color: black; text-decoration: underline;">
                                 Forgout password
-                            </h3>
+                            </a>
                         </div>
                     </div>
 
                     <div class="authCreate__main__form_div">
-                        <div class="authCreate__main__form_div__div">
+                        <div class="authCreate__main__form__div__div">
                             <button class="authCreate__main__form_div__div__button">
                                 Login
                             </button>
                         </div>
                     </div>
                 </x-ui.form>
-            </main>
-        </x-cards.card>
+            </div>
+        </div>
 
-        <x-cards.card class="authCreate__card">
-            <div class="authCreate__card__div">
+        <div class="authCreate authCreate__card">
+            <div class="authCreate__card__div"> 
                 Create your account today!   
             </div>
             <div class="authCreate__card__div">
@@ -43,7 +42,7 @@
                     Sign up!
                 </x-ui.a_link>
             </div>
-        </x-cards.card>
+        </div>
         
     </x-layouts.main>
 </x-layout>

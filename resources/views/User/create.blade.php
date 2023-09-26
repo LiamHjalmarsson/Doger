@@ -1,7 +1,7 @@
 <x-layout>
     <x-layouts.main style="height: 85vh">
 
-        <x-cards.card>
+        <div class="authCreate">
             <header>
                 <div>
                 </div>
@@ -27,9 +27,9 @@
                     </div>
                 </x-ui.form>
             </main>
-        </x-cards.card>
+        </div>
 
-        <x-cards.card class="userCreate__card">
+        <div class="authCreate authCreate__card">
             <div class="userCreate__card__div">
                 Login to your account  
             </div>
@@ -38,7 +38,7 @@
                     Login 
                 </x-ui.a_link>
             </div>
-        </x-cards.card>
+        </div>
 
     </x-layouts.main>
 </x-layout>

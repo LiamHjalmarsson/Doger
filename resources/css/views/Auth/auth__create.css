@@ -1,4 +1,10 @@
 .authCreate {
+    padding: 1rem; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    background-color: #797979;
+    height: 100%;
 }
 
 .authCreate__header__div {
@@ -25,10 +31,9 @@
 .authCreate__main__form_div {
     display: flex; 
     flex-direction: column; 
-    margin-bottom: 1rem;
 }
 
-.authCreate__main__form_div__div {
+.authCreate__main__form__div__div {
     text-align: center;
 }
 

@@ -1,16 +1,16 @@
 <x-layout>
     <x-layouts.main>
-        <x-cards.card class="userShow__card">
+    <div class="userShow">
 
             <header class="userShow__header">
                 @if (auth()->user()->id == $user->id)
-                    <div style="display: flex; justify-content: space-between; position: absolute; top: 10px; width: 95%;">
-                        <div>
+                    <div style="display: flex; justify-content: space-between; position: relative; width: 100%;">
+                        <div style="position: absolute; z-index: 1">
                             <x-ui.a_link href="{{ route('user.edit', $user) }}" style="padding: 1rem; width: 100px; background: #313131; color: white; border: none; outline: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
                                 Edit
                             </x-ui.a_link>
                         </div>
-                        <div>
+                        <div style="position: absolute; z-index: 1; right: 0;">
                             <form action="{{ route('auth.destroy', auth()->user()->id) }}" method="POST"
                                 style="text-align: center">
                                 @csrf
@@ -38,8 +38,8 @@
                         </form>
                     @endif
                 @endif
-                <div class="userShow__header__div">
-                    <img src="{{ $user->avatar }}" class="userShow__header__div__img" />
+                <div class="userShow__header__div" style="margin-bottom: 0.4rem;">
+                    <img src="{{ $user->avatar }}" class="userShow__header__div__img"/>
                 </div>
                 <div>
                     <h3 style="text-align: center">
@@ -68,6 +68,6 @@
                 </div>
             </nav>
 
-        </x-cards.card>
+        </div>
     </x-layouts.main>
 </x-layout>
