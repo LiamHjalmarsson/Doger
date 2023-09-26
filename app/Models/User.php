@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -54,6 +55,14 @@ class User extends Authenticatable
         return Attribute::make(get: function($value){
             return $value ? '/storage/avatars/' . $value : '/default_avatar.png';
         });
+    }
+
+    public function followers () {
+        $this->hasMany(Follow::class, "user_id");
+    }
+    
+    public function following () {
+        $this->hasMany(Follow::class, "followeduser");
     }
 
 }

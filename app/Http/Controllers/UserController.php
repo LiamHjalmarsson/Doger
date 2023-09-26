@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follow;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -9,29 +10,25 @@ use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $users = User::select('id', 'username', 'email', 'avatar')->get();
+        $this->authorize("viewAny", User::class);
 
+        $users = User::select('id', 'username', 'email', 'avatar')->get();
         return view("User.index", ["users" => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
+        $this->authorize("create", User::class);
+
         return view(("User.create"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        $this->authorize("create", User::class);
+
         $data = $request->validate([
             'username' => 'required',
             'password' => 'required',
@@ -54,27 +51,32 @@ class UserController extends Controller
         return redirect()->route("user.show", ["user" => $user])->with("success", "User created successfully");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(User $user)
     {
-        return view("User.show", ["user" => $user]);
+        $this->authorize("view", $user);
+
+        $following = 0;
+
+        if (auth()->check()) {
+            $following = Follow::where([
+                ['user_id', auth()->user()->id],
+                ['followeduser', $user->id]
+            ])->count();
+        }
+
+        return view("User.show", ["user" => $user, "following" => $following]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(User $user)
     {
+        $this->authorize("update", $user);
         return view("User.edit", ["user" => $user]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, User $user)
     {
+        $this->authorize("update", $user);
+
         $request->validate([
             "username" => "sometimes",
             "description" => "sometimes",
@@ -89,6 +91,8 @@ class UserController extends Controller
     }
 
     public function avatarUpdate (Request $request, User $user) {
+        $this->authorize("update", $user);
+
         $request->validate([
             "avatar" => "sometimes",
         ]);
@@ -111,11 +115,11 @@ class UserController extends Controller
 
         return back()->with("success", "user updated successfully");
     }
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(User $user)
     {
+        $this->authorize("delete", $user);
+
         $user->delete();
         return redirect("/")->with("success", "User deleted successfully");
     }

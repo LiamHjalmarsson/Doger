@@ -21,6 +21,22 @@
                             </form>
                         </div>
                     </div>
+                @else 
+                    @if ($following)
+                        <form action="/user/{{ $user->username }}/unfollow" method="POST">
+                            @csrf
+                            <button>
+                                Unfollow 
+                            </button>
+                        </form>
+                    @else
+                        <form action="/user/{{ $user->username }}/follow" method="POST">
+                            @csrf
+                            <button>
+                                Follow 
+                            </button>
+                        </form>
+                    @endif
                 @endif
                 <div class="userShow__header__div">
                     <img src="{{ $user->avatar }}" class="userShow__header__div__img" />
@@ -55,20 +71,3 @@
         </x-cards.card>
     </x-layouts.main>
 </x-layout>
-
-
-{{-- @if (auth()->user()->id == $user->id)
-<div>
-    <button class="userShow__nav__div__ul__div__button">
-        Edit
-    </button>
-</div>
-<form action="{{ route('auth.destroy', auth()->user()->id) }}" method="POST"
-    style="text-align: center">
-    @csrf
-    @method('DELETE')
-    <button class="userShow__nav__div__ul__div__button">
-        Logout
-    </button>
-</form>
-@endif --}}
