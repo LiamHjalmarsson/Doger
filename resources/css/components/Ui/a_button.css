@@ -1,0 +1,11 @@
+.a_button {
+    width: 100px; 
+    background: #313131; 
+    color: white;
+    border-radius: 0.5rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-decoration: none;
+    padding: 0.5rem;
+}

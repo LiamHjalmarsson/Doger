@@ -6,17 +6,17 @@
                 @if (auth()->user()->id == $user->id)
                     <div style="display: flex; justify-content: space-between; position: relative; width: 100%;">
                         <div style="position: absolute; z-index: 1">
-                            <x-ui.a_link href="{{ route('user.show', $user) }}" style="padding: 1rem; width: 100px; background: #313131; color: white; border: none; outline: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                            <x-ui.a_button href="{{ route('user.show', $user) }}">
                                 User
-                            </x-ui.a_link>
+                            </x-ui.a_button>
                         </div>
                         <div style="position: absolute; right: 0; z-index: 1;">
                             <form action="{{ route('auth.destroy', auth()->user()->id) }}" method="POST" style="text-align: center">
                                 @csrf
                                 @method('DELETE')
-                                <button style="padding: 1rem; width: 100px; background: #313131; color: white; border: none; outline: none; border-radius: 0.5rem; cursor: pointer;">
+                                <x-ui.button type="submit" style="background: #313131; color: white;">
                                     Logout
-                                </button>
+                                </x-ui.button>
                             </form>
                         </div>
                     </div>
@@ -33,9 +33,9 @@
                         </div>
                         <img src="{{ $user->avatar }}" class="userShow__header__div__img" style="margin-bottom: 0.4rem;"/>
                         <div style="display: flex; justify-content: center;">
-                            <button type="submit" id="submitButton" style="padding: 1rem; width: 100px; background: #313131; color: white; border: none; outline: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; display: none;">
+                            <x-ui.button type="submit" id="submitButton" style="background: #313131; color: white;">
                                 Submit
-                            </button>
+                            </x-ui.button>
                         </div>
                     </x-ui.form>
                 </div>
@@ -55,9 +55,9 @@
                     <x-ui.input name="email" type="email" value="{{$user->email}}"/>
 
                     <div style="display: flex; justify-content: space-around; grid-column: span 2;">
-                            <button type="submit" class="userShow__nav__div__ul__div__button">
+                            <x-ui.button type="click" style="background-color: #FBAB7E; background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);">
                                 Update
-                            </button>
+                            </x-ui.button>
                     </div>
                 </x-ui.form>
             </div>
@@ -66,9 +66,9 @@
                 <div class="userShow__nav__div">
                     <ul class="userShow__nav__div__ul">
                         <div>
-                            <button class="userShow__nav__div__ul__div__button">
+                            <x-ui.button type="click" style="background-color: #FBAB7E; background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);">
                                 Details
-                            </button>
+                            </x-ui.button >
                         </div>
                     </ul>
                     <div class="userShow__nav__div__div">
