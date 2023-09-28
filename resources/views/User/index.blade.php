@@ -13,7 +13,7 @@
                     <div>
                         Follow
                     </div>
-                    <img src="{{ $user->avatar }}" alt="" style="width: 100px;">
+                    <img src="{{ $user->avatar }}" alt="" style="width: 100px; border-radius: 50%;">
                 </div>
             </x-ui.a_link>
         @endforeach

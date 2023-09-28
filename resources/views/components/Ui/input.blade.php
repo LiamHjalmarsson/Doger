@@ -2,7 +2,7 @@
     <label for="{{ $name }}" class="label">
         {{ $name }}
     </label>
-    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" @if(old($name) !== null) value="{{ old($name) }}" @endif class="input"/>
+    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ old($name) }}" class="input" autocomplete="off"/>
 
     <div style="height: 10px; text-align:center; margin-top: 0.2rem;">
         @error($name)

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/", [AuthController::class, "create"]);
+
 Route::resource("auth", AuthController::class)->only("create", "store", "destroy");
 
 Route::resource("user", UserController::class);

@@ -25,9 +25,9 @@
                     @if ($following)
                         <form action="/user/{{ $user->username }}/unfollow" method="POST">
                             @csrf
-                            <button>
+                            <x-ui.button type="submit" style="background: #313131; color: white;">
                                 Unfollow 
-                            </button>
+                            </x-ui.button>
                         </form>
                     @else
                         <form action="/user/{{ $user->username }}/follow" method="POST">
