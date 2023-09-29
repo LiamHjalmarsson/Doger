@@ -18,9 +18,9 @@
             {{ $slot }}
         </div>
 
-        {{-- <x-layouts.footer>
+        <x-layouts.footer>
             Copywrite
-        </x-layouts.footer> --}}
+        </x-layouts.footer>
     </body>
     
 </html>

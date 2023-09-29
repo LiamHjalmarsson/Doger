@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 @else 
-                    @if ($following)
+                    @if ($currentlyFollow)
                         <form action="/user/{{ $user->username }}/unfollow" method="POST">
                             @csrf
                             <x-ui.button type="submit" style="background: #313131; color: white;">
@@ -59,14 +59,22 @@
                     </ul>
                     <div class="userShow__nav__div__div">
                         <div>
-                            Followers 
+                            <a href="{{ route('user.followers', $user) }}" style="color: white" class="{{ Request::segment(3) == "followers" ? "active" : "" }}">
+                                Followers: {{ $follows }}
+                            </a>
                         </div>
                         <div>
-                            Following
+                            <a href="{{ route('user.following', $user) }}" style="color: white" class="{{ Request::segment(3) == "followers" ? "active" : "" }}">
+                                Following: {{ $following }}
+                            </a> 
                         </div>
                     </div>
                 </div>
             </nav>
+
+            <div>
+                {{ $slot }}
+            </div>
 
         </div>
     </x-layouts.main>

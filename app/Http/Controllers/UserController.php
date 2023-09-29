@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         $this->authorize("viewAny", User::class);
 
-        $users = User::select('id', 'username', 'email', 'avatar')->get();
+        $users = User::all();
         return view("User.index", ["users" => $users]);
     }
 
@@ -55,16 +55,16 @@ class UserController extends Controller
     {
         $this->authorize("view", $user);
 
-        $following = 0;
+        $currentlyFollow = 0;
 
         if (auth()->check()) {
-            $following = Follow::where([
+            $currentlyFollow = Follow::where([
                 ['user_id', auth()->user()->id],
-                ['followeduser', $user->id]
+                ['followeduser', $user->id],
             ])->count();
         }
 
-        return view("User.show", ["user" => $user, "following" => $following]);
+        return view("User.show", ["user" => $user, "currentlyFollow" => $currentlyFollow, "follows" => $user->followers()->count(), "following" => $user->following()->count() ]);
     }
 
     public function edit(User $user)
