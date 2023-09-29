@@ -13,10 +13,10 @@
     <body>
         <x-layouts.nav />
 
-        <div>
+        <main class="mainContainer">
             <x-messages.message />
             {{ $slot }}
-        </div>
+        </main>
 
         <x-layouts.footer>
             Copywrite

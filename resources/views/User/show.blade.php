@@ -1,6 +1,6 @@
 <x-layout>
     <x-layouts.main>
-    <div class="userShow">
+        <div class="userShow">
 
             <header class="userShow__header">
                 @if (auth()->user()->id == $user->id)
@@ -48,33 +48,19 @@
                 </div>
             </header>
 
-            <nav class="userShow__nav">
-                <div class="userShow__nav__div">
-                    <ul class="userShow__nav__div__ul">
-                        <div>
-                            <x-ui.button type="click" class="userShow__nav__div__ul__div__button">
-                                Details
-                            </x-ui.button>
-                        </div>
-                    </ul>
-                    <div class="userShow__nav__div__div">
-                        <div>
-                            <a href="{{ route('user.followers', $user) }}" style="color: white" class="{{ Request::segment(3) == "followers" ? "active" : "" }}">
-                                Followers: {{ $follows }}
-                            </a>
-                        </div>
-                        <div>
-                            <a href="{{ route('user.following', $user) }}" style="color: white" class="{{ Request::segment(3) == "followers" ? "active" : "" }}">
-                                Following: {{ $following }}
-                            </a> 
-                        </div>
+            <x-user.nav :user="$user" :follows="$follows" :following="$following">
+                @if(Request::segment(3) == 'followers')
+                    <!-- Slot content for the 'Followers' tab goes here -->
+                    <div>
+                        This is the 'Followers' tab content.
                     </div>
-                </div>
-            </nav>
-
-            <div>
-                {{ $slot }}
-            </div>
+                @elseif(Request::segment(3) == 'following')
+                    <!-- Slot content for the 'Following' tab goes here -->
+                    <div>
+                        This is the 'Following' tab content.
+                    </div>
+                @endif
+            </x-user.nav>
 
         </div>
     </x-layouts.main>

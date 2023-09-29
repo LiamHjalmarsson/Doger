@@ -62,25 +62,7 @@
                 </x-ui.form>
             </div>
 
-            <nav class="userShow__nav">
-                <div class="userShow__nav__div">
-                    <ul class="userShow__nav__div__ul">
-                        <div>
-                            <x-ui.button type="click" style="background-color: #FBAB7E; background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);">
-                                Posts
-                            </x-ui.button >
-                        </div>
-                    </ul>
-                    <div class="userShow__nav__div__div">
-                        <div>
-                            Followers
-                        </div>
-                        <div>
-                            Following
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <x-user.nav :user="$user" :follows="$follows" :following="$following" />
 
         </div>
     </x-layouts.main>

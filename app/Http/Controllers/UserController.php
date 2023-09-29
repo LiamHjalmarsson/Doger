@@ -70,7 +70,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $this->authorize("update", $user);
-        return view("User.edit", ["user" => $user]);
+        return view("User.edit", ["user" => $user, "follows" => $user->followers()->count(), "following" => $user->following()->count() ]);
     }
 
     public function update(Request $request, User $user)
