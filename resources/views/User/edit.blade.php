@@ -51,7 +51,7 @@
                     @csrf
                     @method('PUT')
                     
-                    <x-ui.input name="username" type="text"/>
+                    <x-ui.input name="username" />
                     <x-ui.input name="email" type="email"/>
 
                     <div style="display: flex; justify-content: space-around; grid-column: span 2;">

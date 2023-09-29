@@ -11,7 +11,7 @@
 
             <div class="authCreate__main">
                 <x-ui.form action="{{ route('auth.store') }}" class="authCreate__main__form">
-                    <x-ui.input name="username" type="text" />
+                    <x-ui.input name="username" />
                     <x-ui.input name="password" type="password" />
 
                     <div class="authCreate__main__form_div" style="margin-bottom: 2rem ">
