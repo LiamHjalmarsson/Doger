@@ -13,9 +13,9 @@
             <main class="userCreate__main">
                 <x-ui.form action="{{ route('user.store') }}" class="userCreate__main__form" enctype="multipart/form-data">
                     @csrf
-                    <x-ui.input name="username" type="text" />
-                    <x-ui.input name="email" type="email" />
-                    <x-ui.input name="password" type="password" />
+                    <x-ui.input name="username" :required="true" />
+                    <x-ui.input name="email" type="email" :required="true" />
+                    <x-ui.input name="password" type="password" :required="true" />
                     <x-ui.input name="avatar" type="file" />
 
                     <div class="userCreate__main__form_div">
