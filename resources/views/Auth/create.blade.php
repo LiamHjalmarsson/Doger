@@ -24,9 +24,9 @@
 
                     <div class="authCreate__main__form_div">
                         <div class="authCreate__main__form__div__div">
-                            <button class="authCreate__main__form_div__div__button">
+                            <x-ui.button class="authCreate__main__form_div__div__button">
                                 Login
-                            </button>
+                            </x-ui.button>
                         </div>
                     </div>
                 </x-ui.form>
